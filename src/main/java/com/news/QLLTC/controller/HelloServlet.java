@@ -1,4 +1,4 @@
-package com.news.newswebsite;
+package com.news.QLLTC.controller;
 
 import java.io.*;
 
