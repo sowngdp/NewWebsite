@@ -105,6 +105,8 @@ public class TuyenDiServlet extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Ga> gaList = this.gaService.layTatCaGa();
+        request.setAttribute("gaList", gaList);
         switch (request.getPathInfo()) {
             case "/them-tuyen-di":
                 validateAndCreateTuyenDi(request,response);

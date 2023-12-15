@@ -64,6 +64,9 @@
                                     Xóa
                                 </button>
                             </form>
+                            <a  href="${pageContext.request.contextPath}/admin/QuanLyLichTrinh/tao-lich-trinh?maTuyenDi=${tuyenDi.maTuyenDi}" class="button mr-1 is-link">
+                                Quản lý lịch trình
+                            </a>
                         </div>
                     </td>
 
