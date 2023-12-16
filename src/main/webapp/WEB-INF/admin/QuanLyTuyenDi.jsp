@@ -2,8 +2,9 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<t:admin-layout>
+<t:main-layout>
     <jsp:body>
+
         <div class="is-flex is-align-content-center is-justify-content-space-between">
             <h1 class="is-size-3 has-text-weight-bold">
                 Quản lý tuyến đi
@@ -23,6 +24,15 @@
                 </th>
                 <th>
                     Điểm cuối tuyến
+                </th>
+                <th>
+                    Tàu đi
+                </th>
+                <th>
+                    Thời gian đi
+                </th>
+                <th>
+                    Thời gian đến
                 </th>
                 <th>
                     Hành động
@@ -48,6 +58,15 @@
                             ${tuyenDi.gaCuoi.tenGa}
                     </td>
                     <td>
+                            ${tuyenDi.tau.tenTau}
+                    </td>
+                    <td>
+                            ${tuyenDi.thoiGianDi}
+                    </td>
+                    <td>
+                            ${tuyenDi.thoiGianDen}
+                    </td>
+                    <td>
                         <div class="is-flex ">
                             <a href="${pageContext.request.contextPath}/admin/QuanLyTuyenDi/sua-tuyen-di?maTuyenDi=${tuyenDi.maTuyenDi}" class="button mr-1 is-warning">
                                 Sửa
@@ -64,7 +83,7 @@
                                     Xóa
                                 </button>
                             </form>
-                            <a  href="${pageContext.request.contextPath}/admin/QuanLyLichTrinh/tao-lich-trinh?maTuyenDi=${tuyenDi.maTuyenDi}" class="button mr-1 is-link">
+                            <a  href="${pageContext.request.contextPath}/admin/QuanLyLichTrinh/tao-lich-trinh?maTuyenDi=${tuyenDi.maTuyenDi}" class="button ml-1 is-link">
                                 Quản lý lịch trình
                             </a>
                         </div>
@@ -76,4 +95,4 @@
             </tbody>
         </table>
     </jsp:body>
-</t:admin-layout>
+</t:main-layout>

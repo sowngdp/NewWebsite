@@ -7,7 +7,7 @@
     String tenTauError = (String) request.getAttribute("tenTauError");
     String bienSoError = (String) request.getAttribute("bienSoError");
 %>
-<t:admin-layout>
+<t:main-layout>
     <jsp:body>
         <h1 class="is-size-3 has-text-weight-bold">
             Tạo tàu mới
@@ -55,4 +55,4 @@
             </div>
         </form>
     </jsp:body>
-</t:admin-layout>
+</t:main-layout>

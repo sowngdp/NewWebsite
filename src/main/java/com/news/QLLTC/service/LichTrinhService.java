@@ -36,7 +36,13 @@ public class LichTrinhService {
             throw new HttpStatusException(500, e.getMessage());
         }
     }
-
+    public void suaLichTrinh(LichTrinh lichTrinh) {
+        try {
+            lichTrinhRepository.capNhatLichTrinh(lichTrinh);
+        } catch (Exception e) {
+            throw new HttpStatusException(500, e.getMessage());
+        }
+    }
     public List<LichTrinh> layTatCaLichTrinh() {
         try {
             return lichTrinhRepository.layTatCaLichTrinh();

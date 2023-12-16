@@ -12,7 +12,7 @@
         ga.setDiaChi("");
     }
 %>
-<t:admin-layout>
+<t:main-layout>
     <jsp:body>
         <h1 class="is-size-3 has-text-weight-bold">
             Tạo ga mới
@@ -64,4 +64,4 @@
             </div>
         </form>
     </jsp:body>
-</t:admin-layout>
+</t:main-layout>

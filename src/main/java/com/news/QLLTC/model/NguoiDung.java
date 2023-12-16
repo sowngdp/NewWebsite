@@ -11,6 +11,6 @@ public class NguoiDung {
     private int maNguoiDung;
     private String tenDangNhap;
     private String matKhau;
-    private VaiTro vaiTro;
+    private VaiTro vaiTro = VaiTro.KHACH_HANG;
 
 }

@@ -1,4 +1,5 @@
-<%--
+<%@ tag import="com.news.QLLTC.model.NguoiDung" %>
+<%@ tag import="com.news.QLLTC.model.VaiTro" %><%--
   Created by IntelliJ IDEA.
   User: Laffy
   Date: 12/12/2023
@@ -17,6 +18,10 @@
     </title>
 </head>
 <body>
+<%
+    var user = (NguoiDung) session.getAttribute("nguoiDung");
+    var userName = user == null ? "" : user.getTenDangNhap();
+%>
 <header id="pageheader">
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
@@ -34,61 +39,75 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
+                <a class="navbar-item" href="${pageContext.request.contextPath}/">
                     Trang chủ
                 </a>
 
 
+                <% if (user !=null && !user.getVaiTro().name().equals(VaiTro.KHACH_HANG.name())) { %>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
-                        Danh mục
+                        Quản lý
                     </a>
 
                     <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            Thế giới
+                        <a class="navbar-item" href="${pageContext.request.contextPath}/admin/QuanLyGa/">
+                            Quản lý Ga
                         </a>
-                        <a class="navbar-item">
-                            Thể thao
+                        <a class="navbar-item" href="${pageContext.request.contextPath}/admin/QuanLyTau/">
+                            Quản lý Tàu
                         </a>
-                        <a class="navbar-item">
-                            Giải trí
+                        <a class="navbar-item" href="${pageContext.request.contextPath}/admin/QuanLyTuyenDi/">
+                            Quản lý Tuyến Đi
+                        </a>
+                        <a class="navbar-item" href="${pageContext.request.contextPath}/admin/QuanLyNguoiDung/">
+                            Quản người dùng
                         </a>
 
                     </div>
                 </div>
+                <% } %>
             </div>
 
             <div class="navbar-end">
+                <% if (user == null) { %>
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
+                        <a class="button is-primary" href="${pageContext.request.contextPath}/auth/register">
+                            <strong>
+                                Đăng ký
+                            </strong>
                         </a>
-                        <a class="button is-light">
-                            Log in
+                        <a class="button is-light" href="${pageContext.request.contextPath}/auth/login">
+                            Đăng nhập
                         </a>
                     </div>
                 </div>
+                <% } else { %>
+                <div class="navbar-item ">
+
+                    <div class="buttons">
+                        <a class="button is-white  mr-2" href="${pageContext.request.contextPath}/auth/profile">
+                            <strong>
+                                <%= userName %>
+                            </strong>
+                        </a>
+                        <a class="button is-primary" href="${pageContext.request.contextPath}/auth/logout">
+                            <strong>
+                                Đăng xuất
+                            </strong>
+                        </a>
+                    </div>
+                </div>
+                <% } %>
             </div>
         </div>
     </nav>
 </header>
 
-<main id="main" class="container" style="min-height: 80vh">
+<main id="main" class="container" style="min-height: 120vh">
     <jsp:doBody/>
 </main>
 
-<footer id="pagefooter">
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-            </p>
-        </div>
-    </footer>
-</footer>
 </body>
 </html>

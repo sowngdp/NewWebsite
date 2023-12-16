@@ -4,14 +4,17 @@ import com.news.QLLTC.common.HttpStatusException;
 import com.news.QLLTC.model.TuyenDi;
 import com.news.QLLTC.repository.TuyenDiRepository;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
 public class TuyenDiService {
     private final TuyenDiRepository tuyenDiRepository;
+    private final LichTrinhService lichTrinhService;
 
     public TuyenDiService() {
         this.tuyenDiRepository = new TuyenDiRepository();
+        this.lichTrinhService = new LichTrinhService();
     }
 
     public List<TuyenDi> layTatCaTuyenDi() {
@@ -54,6 +57,23 @@ public class TuyenDiService {
         }
     }
 
+    public List<TuyenDi> timTuyenDiTheoGa(Date ngayDi, int maTau, int maGaDi, int maGaDen) {
+        try {
+            var ids = this.tuyenDiRepository.timLichTrinh(ngayDi, maTau, maGaDi, maGaDen);
+            var tuyenDis = ids.stream().map(id -> {
+                try {
+                    var tuyenDi = this.tuyenDiRepository.timTuyenDiTheoId(id);
+                    tuyenDi.setLichTrinhList(this.lichTrinhService.layLichTrinhTuTuyenDi(id));
+                    return tuyenDi;
+                } catch (SQLException e) {
+                    throw new HttpStatusException(500, e.getMessage());
+                }
+            }).toList();
+            return tuyenDis;
+        } catch (SQLException e) {
+            throw new HttpStatusException(500, e.getMessage());
+        }
 
+    }
 
 }

@@ -4,6 +4,7 @@ package com.news.QLLTC.repository;
 import com.news.QLLTC.model.LichTrinh;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
@@ -104,5 +105,7 @@ public class LichTrinhRepository {
         }
         return lichTrinhList;
     }
+
+
 
 }

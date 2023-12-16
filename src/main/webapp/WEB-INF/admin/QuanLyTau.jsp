@@ -2,7 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<t:admin-layout>
+<t:main-layout>
     <jsp:body>
         <div class="is-flex is-align-content-center is-justify-content-space-between">
             <h1 class="is-size-3 has-text-weight-bold">
@@ -73,4 +73,4 @@
             </tbody>
         </table>
     </jsp:body>
-</t:admin-layout>
+</t:main-layout>

@@ -12,7 +12,7 @@
         tau.setBienSo("");
     }
 %>
-<t:admin-layout>
+<t:main-layout>
     <jsp:body>
         <h1 class="is-size-3 has-text-weight-bold">
             Sửa lại thông tin tàu
@@ -67,4 +67,4 @@
             </div>
         </form>
     </jsp:body>
-</t:admin-layout>
+</t:main-layout>
