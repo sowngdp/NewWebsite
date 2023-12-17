@@ -15,7 +15,7 @@
 <t:main-layout>
     <jsp:body>
         <h1 class="is-size-3 has-text-weight-bold">
-            Tạo ga mới
+            Sửa ga
         </h1>
 
         <form action="${pageContext.request.contextPath}/admin/QuanLyGa/sua-ga" method="post">

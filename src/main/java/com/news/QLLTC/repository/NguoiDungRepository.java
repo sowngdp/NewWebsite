@@ -89,16 +89,19 @@ public class NguoiDungRepository {
         preparedStatement.executeUpdate();
     }
 
-    public void layTatCaNguoiDung() throws SQLException {
+    public List<NguoiDung> layTatCaNguoiDung() throws SQLException {
         var sql = "SELECT * FROM nguoi_dung";
         var preparedStatement = connection.prepareStatement(sql);
         var rs = preparedStatement.executeQuery();
+        var nguoiDungList = new ArrayList<NguoiDung>();
         while (rs.next()) {
-            System.out.println(rs.getInt("maNguoiDung"));
-            System.out.println(rs.getString("tenDangNhap"));
-            System.out.println(rs.getString("matKhau"));
-            System.out.println(rs.getString("vaiTro"));
+            nguoiDungList.add(NguoiDung.builder().maNguoiDung(rs.getInt("maNguoiDung"))
+                    .tenDangNhap(rs.getString("tenDangNhap"))
+                    .matKhau(rs.getString("matKhau"))
+                    .vaiTro(VaiTro.valueOf(rs.getString("vaiTro")))
+                    .build());
         }
+        return nguoiDungList;
     }
 
 

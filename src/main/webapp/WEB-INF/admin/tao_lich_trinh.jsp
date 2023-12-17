@@ -91,10 +91,6 @@ https://cdn.jsdelivr.net/npm/bulma-calendar@6.1.19/dist/css/bulma-calendar.min.c
                     </td>
                     <td>
                       <div class="is-flex">
-                          <button class="button mr-2 is-info">
-
-                              <span>Sửa</span>
-                          </button>
                           <form action="${pageContext.request.contextPath}/admin/QuanLyLichTrinh/xoa?maTuyenDi=${tuyenDi.maTuyenDi}"
                                 method="post">
                               <input type="hidden" name="maLichTrinh" value="${lich.maLichTrinh}">

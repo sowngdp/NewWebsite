@@ -15,7 +15,7 @@ https://cdn.jsdelivr.net/npm/bulma-calendar@6.1.19/dist/js/bulma-calendar.min.js
 https://cdn.jsdelivr.net/npm/bulma-calendar@6.1.19/dist/css/bulma-calendar.min.css
 " rel="stylesheet">
         <h1 class="is-size-3 has-text-weight-bold">
-            Tạo tuyến đi mới
+            Sửa tuyến đi
         </h1>
         <jsp:useBean id="gaList" type="java.util.List" scope="request" />
         <jsp:useBean id="tuyenDi" type="com.news.QLLTC.model.TuyenDi" scope="request" />

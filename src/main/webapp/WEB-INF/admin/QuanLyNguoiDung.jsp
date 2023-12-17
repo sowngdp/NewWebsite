@@ -27,6 +27,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <jsp:useBean id="nguoiDungList" scope="request" type="java.util.List"/>
                         <c:forEach items="${listNguoiDung}" var="nguoiDung" varStatus="stt">
                             <tr>
                                 <td>${nguoiDung.maNguoiDung}</td>

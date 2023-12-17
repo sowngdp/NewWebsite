@@ -5,6 +5,8 @@ import com.news.QLLTC.model.NguoiDung;
 import com.news.QLLTC.repository.NguoiDungRepository;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NguoiDungService {
     private final NguoiDungRepository nguoiDungRepository;
@@ -71,6 +73,14 @@ public class NguoiDungService {
     public NguoiDung timNguoiDungTheoTenDangNhap(String tenDangNhap) {
         try {
             return this.nguoiDungRepository.findUserByTenDangNhap(tenDangNhap);
+        } catch (SQLException e) {
+            throw new HttpStatusException(404, e.getMessage());
+        }
+    }
+
+    public List<NguoiDung> layTatCaNguoiDung() {
+        try {
+            return this.nguoiDungRepository.layTatCaNguoiDung();
         } catch (SQLException e) {
             throw new HttpStatusException(404, e.getMessage());
         }

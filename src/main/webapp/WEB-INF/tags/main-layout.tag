@@ -60,9 +60,6 @@
                         <a class="navbar-item" href="${pageContext.request.contextPath}/admin/QuanLyTuyenDi/">
                             Quản lý Tuyến Đi
                         </a>
-                        <a class="navbar-item" href="${pageContext.request.contextPath}/admin/QuanLyNguoiDung/">
-                            Quản người dùng
-                        </a>
 
                     </div>
                 </div>

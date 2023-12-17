@@ -145,14 +145,19 @@ public class TuyenDiRepository {
 
     public List<Integer> timLichTrinh(Date ngayDi, int maTau, int maGaDi, int maGaDen) throws SQLException {
         var sql = """
-                SELECT distinct tuyen_di.ma_tuyen_di
+           
+                SELECT distinct lt.ma_tuyen_di
                 FROM tuyen_di
                 JOIN lich_trinh lt on lt.ma_tuyen_di = tuyen_di.ma_tuyen_di
-                where ? between lt.ngay_di and lt.ngay_den
+                where  CAST(? as date ) = CAST(lt.ngay_di as date)
                 and tuyen_di.maTau = ?
-                and tuyen_di.diem_dau = ?
-                and tuyen_di.diem_cuoi = ?
-                       
+                and( lt.ma_ga_di =?
+                and
+                     exists(
+                     select * from lich_trinh lt1
+                              where lt1.ma_tuyen_di = lt.ma_tuyen_di
+                                and lt1.ngay_di > lt.ngay_di
+                                and lt1.ma_ga_den = ?))
                 """;
         var preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setDate(1, ngayDi);
